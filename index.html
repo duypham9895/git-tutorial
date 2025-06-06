@@ -2,361 +2,860 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Git Made Simple - For Everyone!</title>
-    <style>
-      body {
-        font-family: "Comic Sans MS", cursive, sans-serif;
-        margin: 0;
-        padding: 20px;
-        background: linear-gradient(
-          45deg,
-          #ff9a9e 0%,
-          #fecfef 50%,
-          #fecfef 100%
-        );
-        color: #333;
-        line-height: 1.6;
-      }
-      .container {
-        max-width: 1000px;
-        margin: 0 auto;
-        background: white;
-        border-radius: 20px;
-        padding: 30px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-      }
-      h1 {
-        text-align: center;
-        color: #e91e63;
-        font-size: 2.5em;
-        margin-bottom: 10px;
-      }
-      .subtitle {
-        text-align: center;
-        font-size: 1.2em;
-        color: #666;
-        margin-bottom: 30px;
-      }
-      .analogy-box {
-        background: #fff3e0;
-        border: 3px solid #ff9800;
-        border-radius: 15px;
-        padding: 20px;
-        margin: 20px 0;
-        text-align: center;
-      }
-      .simple-workflow {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 20px;
-        margin: 30px 0;
-      }
-      .step {
-        background: #f8f9fa;
-        border: 3px solid #28a745;
-        border-radius: 15px;
-        padding: 25px;
-        text-align: center;
-        transition: all 0.3s ease;
-        cursor: pointer;
-      }
-      .step:hover {
-        transform: scale(1.05);
-        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-        background: #e8f5e8;
-      }
-      .step-number {
-        background: #28a745;
-        color: white;
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 1.5em;
-        font-weight: bold;
-        margin: 0 auto 15px auto;
-      }
-      .step-icon {
-        font-size: 3em;
-        margin: 10px 0;
-      }
-      .step h3 {
-        color: #28a745;
-        margin: 10px 0;
-        font-size: 1.3em;
-      }
-      .step p {
-        font-size: 1em;
-        margin: 10px 0;
-      }
-      .easy-commands {
-        background: #e3f2fd;
-        border-radius: 15px;
-        padding: 25px;
-        margin: 30px 0;
-      }
-      .command-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 15px;
-        margin-top: 20px;
-      }
-      .command-card {
-        background: white;
-        border: 2px solid #2196f3;
-        border-radius: 10px;
-        padding: 20px;
-        text-align: center;
-        transition: all 0.3s ease;
-        cursor: pointer;
-      }
-      .command-card:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 5px 15px rgba(33, 150, 243, 0.3);
-      }
-      .command-card h4 {
-        color: #2196f3;
-        margin: 0 0 10px 0;
-        font-size: 1.2em;
-      }
-      .command-text {
-        font-family: "Courier New", monospace;
-        background: #f5f5f5;
-        padding: 8px;
-        border-radius: 5px;
-        margin: 10px 0;
-        font-weight: bold;
-      }
-      .beginner-tips {
-        background: #fff8e1;
-        border: 3px solid #ffc107;
-        border-radius: 15px;
-        padding: 25px;
-        margin: 30px 0;
-      }
-      .tip-list {
-        list-style: none;
-        padding: 0;
-      }
-      .tip-list li {
-        background: white;
-        margin: 10px 0;
-        padding: 15px;
-        border-radius: 8px;
-        border-left: 4px solid #ffc107;
-      }
-      .big-button {
-        background: #4caf50;
-        color: white;
-        padding: 15px 30px;
-        border: none;
-        border-radius: 25px;
-        font-size: 1.2em;
-        cursor: pointer;
-        margin: 10px;
-        transition: all 0.3s ease;
-      }
-      .big-button:hover {
-        background: #45a049;
-        transform: translateY(-2px);
-      }
-      .quick-start {
-        background: #f3e5f5;
-        border: 3px solid #9c27b0;
-        border-radius: 15px;
-        padding: 25px;
-        margin: 30px 0;
-        text-align: center;
-      }
-      @keyframes wiggle {
-        0% {
-          transform: rotate(0deg);
-        }
-        25% {
-          transform: rotate(5deg);
-        }
-        75% {
-          transform: rotate(-5deg);
-        }
-        100% {
-          transform: rotate(0deg);
-        }
-      }
-      .wiggle {
-        animation: wiggle 0.5s ease-in-out;
-      }
-    </style>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta
+      name="description"
+      content="Learn Git easily with visual diagrams and simple explanations. Interactive Git tutorial for beginners with step-by-step workflow visualization."
+    />
+    <meta
+      name="keywords"
+      content="git tutorial, learn git, git for beginners, version control, git workflow, interactive git guide"
+    />
+    <meta name="author" content="Git Tutorial" />
+    <meta name="theme-color" content="#e91e63" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="Git Made Simple - Interactive Tutorial"
+    />
+    <meta
+      property="og:description"
+      content="Learn Git with visual diagrams and simple explanations. Perfect for beginners!"
+    />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta
+      property="twitter:title"
+      content="Git Made Simple - Interactive Tutorial"
+    />
+    <meta
+      property="twitter:description"
+      content="Learn Git with visual diagrams and simple explanations. Perfect for beginners!"
+    />
+
+    <title>Git Made Simple - Interactive Tutorial for Beginners</title>
+
+    <!-- Preload critical resources -->
+    <link rel="preload" href="styles.css" as="style" />
+    <link rel="preload" href="script.js" as="script" />
+
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- Favicon -->
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎯</text></svg>"
+    />
   </head>
   <body>
     <div class="container">
-      <h1>🎯 Git Made Super Simple!</h1>
-      <p class="subtitle">
-        Think of Git like organizing your documents - but for computer files!
-      </p>
+      <header>
+        <h1>🎯 Git Made Super Simple!</h1>
+        <p class="subtitle">
+          Think of Git like organizing your documents - but for computer files!
+        </p>
+      </header>
 
-      <div class="analogy-box">
-        <h2>🏠 Think of Git Like Your Home Office</h2>
-        <p style="font-size: 1.1em">
+      <section class="analogy-box" aria-labelledby="analogy-heading">
+        <h2 id="analogy-heading">🏠 Think of Git Like Your Home Office</h2>
+        <p>
           <strong>Your Desk</strong> = Where you work on files<br />
           <strong>Your Inbox Tray</strong> = Files ready to be filed<br />
           <strong>Your Filing Cabinet</strong> = Your personal saved files<br />
           <strong>Office Shared Drive</strong> = Files everyone can access
         </p>
-      </div>
+      </section>
 
-      <h2 style="text-align: center; color: #e91e63">📋 The 4 Simple Steps</h2>
+      <!-- Visual Git Workflow Section -->
+      <section class="visual-workflow" aria-labelledby="workflow-heading">
+        <h2 id="workflow-heading">🎨 Visual Git Workflow</h2>
+        <p>Click the buttons below to see how files move through Git!</p>
 
-      <div class="simple-workflow" role="list">
-        <div
-          class="step"
-          onclick="showStepInfo(event, 1)"
-          role="listitem"
-          tabindex="0"
-          aria-label="Work on Your Computer"
-        >
-          <div class="step-number">1</div>
-          <div class="step-icon" aria-hidden="true">🖥️</div>
-          <h3>Work on Your Computer</h3>
-          <p>Edit files on your computer like you normally do</p>
-          <small
-            ><strong>This is like:</strong> Writing a document at your
-            desk</small
+        <div class="mobile-instruction" aria-live="polite">
+          📱 <strong>Mobile Tip:</strong> Scroll the diagram left/right to see
+          all areas
+        </div>
+
+        <nav class="workflow-controls" aria-label="Git workflow steps">
+          <button
+            class="workflow-btn"
+            onclick="animateWorkflow('edit')"
+            id="btn-edit"
+            aria-describedby="workflow-explanation"
           >
+            1. Edit Files
+          </button>
+          <button
+            class="workflow-btn"
+            onclick="animateWorkflow('add')"
+            id="btn-add"
+            aria-describedby="workflow-explanation"
+          >
+            2. Git Add
+          </button>
+          <button
+            class="workflow-btn"
+            onclick="animateWorkflow('commit')"
+            id="btn-commit"
+            aria-describedby="workflow-explanation"
+          >
+            3. Git Commit
+          </button>
+          <button
+            class="workflow-btn"
+            onclick="animateWorkflow('push')"
+            id="btn-push"
+            aria-describedby="workflow-explanation"
+          >
+            4. Git Push
+          </button>
+          <button
+            class="workflow-btn reset-btn"
+            onclick="resetWorkflow()"
+            aria-label="Reset workflow visualization"
+          >
+            🔄 Reset
+          </button>
+          <button
+            class="workflow-btn demo-btn"
+            onclick="playDemo()"
+            aria-label="Play automatic demo"
+          >
+            ▶️ Play Demo
+          </button>
+        </nav>
+
+        <div class="git-diagram" aria-labelledby="diagram-title">
+          <span id="diagram-title" class="sr-only"
+            >Interactive Git workflow diagram showing Working Directory, Staging
+            Area, Local Repository, and Remote Repository</span
+          >
+          <svg
+            width="100%"
+            height="350"
+            viewBox="0 0 1300 350"
+            role="graphics-document"
+            aria-labelledby="diagram-title"
+          >
+            <!-- Working Directory -->
+            <g id="working-dir">
+              <rect
+                x="50"
+                y="125"
+                width="200"
+                height="100"
+                rx="12"
+                fill="#fff3e0"
+                stroke="#ff9800"
+                stroke-width="3"
+              />
+              <text
+                x="150"
+                y="150"
+                text-anchor="middle"
+                font-size="15"
+                font-weight="bold"
+                fill="#ff9800"
+              >
+                Working Directory
+              </text>
+              <text
+                x="150"
+                y="170"
+                text-anchor="middle"
+                font-size="13"
+                fill="#666"
+              >
+                Your Computer
+              </text>
+              <text
+                x="150"
+                y="190"
+                text-anchor="middle"
+                font-size="13"
+                fill="#666"
+              >
+                🖥️ Your Desk
+              </text>
+            </g>
+
+            <!-- Staging Area -->
+            <g id="staging-area">
+              <rect
+                x="350"
+                y="125"
+                width="200"
+                height="100"
+                rx="12"
+                fill="#e8f5e8"
+                stroke="#28a745"
+                stroke-width="3"
+              />
+              <text
+                x="450"
+                y="150"
+                text-anchor="middle"
+                font-size="15"
+                font-weight="bold"
+                fill="#28a745"
+              >
+                Staging Area
+              </text>
+              <text
+                x="450"
+                y="170"
+                text-anchor="middle"
+                font-size="13"
+                fill="#666"
+              >
+                Ready to Save
+              </text>
+              <text
+                x="450"
+                y="190"
+                text-anchor="middle"
+                font-size="13"
+                fill="#666"
+              >
+                📋 Inbox Tray
+              </text>
+            </g>
+
+            <!-- Local Repository -->
+            <g id="local-repo">
+              <rect
+                x="650"
+                y="125"
+                width="200"
+                height="100"
+                rx="12"
+                fill="#e3f2fd"
+                stroke="#2196f3"
+                stroke-width="3"
+              />
+              <text
+                x="750"
+                y="150"
+                text-anchor="middle"
+                font-size="15"
+                font-weight="bold"
+                fill="#2196f3"
+              >
+                Local Repository
+              </text>
+              <text
+                x="750"
+                y="170"
+                text-anchor="middle"
+                font-size="13"
+                fill="#666"
+              >
+                Saved Versions
+              </text>
+              <text
+                x="750"
+                y="190"
+                text-anchor="middle"
+                font-size="13"
+                fill="#666"
+              >
+                🗄️ Filing Cabinet
+              </text>
+            </g>
+
+            <!-- Remote Repository -->
+            <g id="remote-repo">
+              <rect
+                x="950"
+                y="125"
+                width="200"
+                height="100"
+                rx="12"
+                fill="#f3e5f5"
+                stroke="#9c27b0"
+                stroke-width="3"
+              />
+              <text
+                x="1050"
+                y="150"
+                text-anchor="middle"
+                font-size="15"
+                font-weight="bold"
+                fill="#9c27b0"
+              >
+                Remote Repository
+              </text>
+              <text
+                x="1050"
+                y="170"
+                text-anchor="middle"
+                font-size="13"
+                fill="#666"
+              >
+                Shared with Team
+              </text>
+              <text
+                x="1050"
+                y="190"
+                text-anchor="middle"
+                font-size="13"
+                fill="#666"
+              >
+                ☁️ Shared Drive
+              </text>
+            </g>
+
+            <!-- Static connecting arrows between all steps -->
+            <g id="static-arrows">
+              <!-- Arrow from Working Directory to Staging Area -->
+              <path
+                d="M 270 175 L 330 175"
+                stroke="#ddd"
+                stroke-width="3"
+                fill="none"
+                marker-end="url(#static-arrowhead)"
+              />
+
+              <!-- Arrow from Staging Area to Local Repository -->
+              <path
+                d="M 570 175 L 630 175"
+                stroke="#ddd"
+                stroke-width="3"
+                fill="none"
+                marker-end="url(#static-arrowhead)"
+              />
+
+              <!-- Arrow from Local Repository to Remote Repository -->
+              <path
+                d="M 870 175 L 930 175"
+                stroke="#ddd"
+                stroke-width="3"
+                fill="none"
+                marker-end="url(#static-arrowhead)"
+              />
+            </g>
+
+            <!-- Interactive command arrows (initially hidden) -->
+            <defs>
+              <!-- Static arrow marker -->
+              <marker
+                id="static-arrowhead"
+                markerWidth="12"
+                markerHeight="8"
+                refX="11"
+                refY="4"
+                orient="auto"
+                markerUnits="strokeWidth"
+              >
+                <path d="M0,0 L0,8 L12,4 z" fill="#ddd" />
+              </marker>
+
+              <!-- Gradient definitions for beautiful arrows -->
+              <linearGradient
+                id="addGradient"
+                x1="0%"
+                y1="0%"
+                x2="100%"
+                y2="0%"
+              >
+                <stop
+                  offset="0%"
+                  style="stop-color: #4caf50; stop-opacity: 1"
+                />
+                <stop
+                  offset="100%"
+                  style="stop-color: #28a745; stop-opacity: 1"
+                />
+              </linearGradient>
+
+              <linearGradient
+                id="commitGradient"
+                x1="0%"
+                y1="0%"
+                x2="100%"
+                y2="0%"
+              >
+                <stop
+                  offset="0%"
+                  style="stop-color: #42a5f5; stop-opacity: 1"
+                />
+                <stop
+                  offset="100%"
+                  style="stop-color: #2196f3; stop-opacity: 1"
+                />
+              </linearGradient>
+
+              <linearGradient
+                id="pushGradient"
+                x1="0%"
+                y1="0%"
+                x2="100%"
+                y2="0%"
+              >
+                <stop
+                  offset="0%"
+                  style="stop-color: #ba68c8; stop-opacity: 1"
+                />
+                <stop
+                  offset="100%"
+                  style="stop-color: #9c27b0; stop-opacity: 1"
+                />
+              </linearGradient>
+
+              <!-- Drop shadow filter -->
+              <filter
+                id="dropshadow"
+                x="-50%"
+                y="-50%"
+                width="200%"
+                height="200%"
+              >
+                <feGaussianBlur in="SourceAlpha" stdDeviation="2" />
+                <feOffset dx="2" dy="2" result="offset" />
+                <feComponentTransfer>
+                  <feFuncA type="linear" slope="0.3" />
+                </feComponentTransfer>
+                <feMerge>
+                  <feMergeNode />
+                  <feMergeNode in="SourceGraphic" />
+                </feMerge>
+              </filter>
+
+              <!-- Beautiful arrowheads -->
+              <marker
+                id="arrowhead-add"
+                markerWidth="16"
+                markerHeight="12"
+                refX="15"
+                refY="6"
+                orient="auto"
+                markerUnits="strokeWidth"
+              >
+                <path
+                  d="M0,0 L0,12 L16,6 z"
+                  fill="url(#addGradient)"
+                  filter="url(#dropshadow)"
+                />
+              </marker>
+
+              <marker
+                id="arrowhead-commit"
+                markerWidth="16"
+                markerHeight="12"
+                refX="15"
+                refY="6"
+                orient="auto"
+                markerUnits="strokeWidth"
+              >
+                <path
+                  d="M0,0 L0,12 L16,6 z"
+                  fill="url(#commitGradient)"
+                  filter="url(#dropshadow)"
+                />
+              </marker>
+
+              <marker
+                id="arrowhead-push"
+                markerWidth="16"
+                markerHeight="12"
+                refX="15"
+                refY="6"
+                orient="auto"
+                markerUnits="strokeWidth"
+              >
+                <path
+                  d="M0,0 L0,12 L16,6 z"
+                  fill="url(#pushGradient)"
+                  filter="url(#dropshadow)"
+                />
+              </marker>
+            </defs>
+
+            <!-- Git Add Arrow -->
+            <g id="arrow-add" style="opacity: 0">
+              <path
+                d="M 270 175 L 330 175"
+                stroke="url(#addGradient)"
+                stroke-width="6"
+                stroke-linecap="round"
+                fill="none"
+                marker-end="url(#arrowhead-add)"
+                filter="url(#dropshadow)"
+              />
+              <text
+                x="300"
+                y="160"
+                text-anchor="middle"
+                font-size="14"
+                font-weight="bold"
+                fill="#28a745"
+                filter="url(#dropshadow)"
+              >
+                git add
+              </text>
+            </g>
+
+            <!-- Git Commit Arrow -->
+            <g id="arrow-commit" style="opacity: 0">
+              <path
+                d="M 570 175 L 630 175"
+                stroke="url(#commitGradient)"
+                stroke-width="6"
+                stroke-linecap="round"
+                fill="none"
+                marker-end="url(#arrowhead-commit)"
+                filter="url(#dropshadow)"
+              />
+              <text
+                x="600"
+                y="160"
+                text-anchor="middle"
+                font-size="14"
+                font-weight="bold"
+                fill="#2196f3"
+                filter="url(#dropshadow)"
+              >
+                git commit
+              </text>
+            </g>
+
+            <!-- Git Push Arrow -->
+            <g id="arrow-push" style="opacity: 0">
+              <path
+                d="M 870 175 L 930 175"
+                stroke="url(#pushGradient)"
+                stroke-width="6"
+                stroke-linecap="round"
+                fill="none"
+                marker-end="url(#arrowhead-push)"
+                filter="url(#dropshadow)"
+              />
+              <text
+                x="900"
+                y="160"
+                text-anchor="middle"
+                font-size="14"
+                font-weight="bold"
+                fill="#9c27b0"
+                filter="url(#dropshadow)"
+              >
+                git push
+              </text>
+            </g>
+
+            <!-- Files (initially hidden) -->
+            <g id="file-working" style="opacity: 0">
+              <rect
+                x="140"
+                y="240"
+                width="20"
+                height="25"
+                rx="2"
+                fill="#ff9800"
+              />
+              <text
+                x="150"
+                y="255"
+                text-anchor="middle"
+                font-size="12"
+                fill="white"
+                font-weight="bold"
+              >
+                📄
+              </text>
+              <text
+                x="150"
+                y="280"
+                text-anchor="middle"
+                font-size="11"
+                fill="#666"
+              >
+                file.txt
+              </text>
+            </g>
+
+            <g id="file-staging" style="opacity: 0">
+              <rect
+                x="440"
+                y="240"
+                width="20"
+                height="25"
+                rx="2"
+                fill="#28a745"
+              />
+              <text
+                x="450"
+                y="255"
+                text-anchor="middle"
+                font-size="12"
+                fill="white"
+                font-weight="bold"
+              >
+                📄
+              </text>
+              <text
+                x="450"
+                y="280"
+                text-anchor="middle"
+                font-size="11"
+                fill="#666"
+              >
+                file.txt
+              </text>
+            </g>
+
+            <g id="file-local" style="opacity: 0">
+              <rect
+                x="740"
+                y="240"
+                width="20"
+                height="25"
+                rx="2"
+                fill="#2196f3"
+              />
+              <text
+                x="750"
+                y="255"
+                text-anchor="middle"
+                font-size="12"
+                fill="white"
+                font-weight="bold"
+              >
+                📄
+              </text>
+              <text
+                x="750"
+                y="280"
+                text-anchor="middle"
+                font-size="11"
+                fill="#666"
+              >
+                file.txt
+              </text>
+            </g>
+
+            <g id="file-remote" style="opacity: 0">
+              <rect
+                x="1040"
+                y="240"
+                width="20"
+                height="25"
+                rx="2"
+                fill="#9c27b0"
+              />
+              <text
+                x="1050"
+                y="255"
+                text-anchor="middle"
+                font-size="12"
+                fill="white"
+                font-weight="bold"
+              >
+                📄
+              </text>
+              <text
+                x="1050"
+                y="280"
+                text-anchor="middle"
+                font-size="11"
+                fill="#666"
+              >
+                file.txt
+              </text>
+            </g>
+          </svg>
         </div>
         <div
-          class="step"
-          onclick="showStepInfo(event, 2)"
-          role="listitem"
-          tabindex="0"
-          aria-label="Choose What to Save"
+          id="workflow-explanation"
+          class="workflow-explanation"
+          aria-live="polite"
         >
-          <div class="step-number">2</div>
-          <div class="step-icon" aria-hidden="true">📋</div>
-          <h3>Choose What to Save</h3>
-          <p>Pick which files you want to save permanently</p>
-          <small
-            ><strong>This is like:</strong> Putting documents in your inbox
-            tray</small
-          >
+          <p>
+            👆 Click the buttons above to see how your files move through Git!
+          </p>
         </div>
-        <div
-          class="step"
-          onclick="showStepInfo(event, 3)"
-          role="listitem"
-          tabindex="0"
-          aria-label="Save Your Work"
-        >
-          <div class="step-number">3</div>
-          <div class="step-icon" aria-hidden="true">💾</div>
-          <h3>Save Your Work</h3>
-          <p>Save your chosen files with a note about what you did</p>
-          <small
-            ><strong>This is like:</strong> Filing documents in your cabinet
-            with a label</small
-          >
-        </div>
-        <div
-          class="step"
-          onclick="showStepInfo(event, 4)"
-          role="listitem"
-          tabindex="0"
-          aria-label="Share with Others"
-        >
-          <div class="step-number">4</div>
-          <div class="step-icon" aria-hidden="true">☁️</div>
-          <h3>Share with Others</h3>
-          <p>Upload your saved work so others can see it</p>
-          <small
-            ><strong>This is like:</strong> Putting files in the shared office
-            drive</small
-          >
-        </div>
-      </div>
+      </section>
 
-      <div class="easy-commands">
-        <h2 style="text-align: center; color: #2196f3">
-          🎮 The Only 4 Commands You Need!
-        </h2>
-        <p style="text-align: center">Click each card to see what it does:</p>
-
-        <div class="command-grid" role="list">
-          <div
-            class="command-card"
-            onclick="explainCommand(event, 'add')"
-            role="listitem"
-            tabindex="0"
+      <section aria-labelledby="steps-heading">
+        <h2 id="steps-heading">📋 The 4 Simple Steps</h2>
+        <div class="simple-workflow">
+          <button
+            class="step"
+            onclick="showStepInfo(event, 1)"
+            aria-label="Learn about working on your computer"
           >
+            <div class="step-number" aria-hidden="true">1</div>
+            <div class="step-icon" aria-hidden="true">🖥️</div>
+            <h3>Work on Your Computer</h3>
+            <p>Edit files on your computer like you normally do</p>
+            <small
+              ><strong>This is like:</strong> Writing a document at your
+              desk</small
+            >
+          </button>
+
+          <button
+            class="step"
+            onclick="showStepInfo(event, 2)"
+            aria-label="Learn about choosing what to save"
+          >
+            <div class="step-number" aria-hidden="true">2</div>
+            <div class="step-icon" aria-hidden="true">📋</div>
+            <h3>Choose What to Save</h3>
+            <p>Pick which files you want to save permanently</p>
+            <small
+              ><strong>This is like:</strong> Putting documents in your inbox
+              tray</small
+            >
+          </button>
+
+          <button
+            class="step"
+            onclick="showStepInfo(event, 3)"
+            aria-label="Learn about saving your work"
+          >
+            <div class="step-number" aria-hidden="true">3</div>
+            <div class="step-icon" aria-hidden="true">💾</div>
+            <h3>Save Your Work</h3>
+            <p>Save your chosen files with a note about what you did</p>
+            <small
+              ><strong>This is like:</strong> Filing documents in your cabinet
+              with a label</small
+            >
+          </button>
+
+          <button
+            class="step"
+            onclick="showStepInfo(event, 4)"
+            aria-label="Learn about sharing with others"
+          >
+            <div class="step-number" aria-hidden="true">4</div>
+            <div class="step-icon" aria-hidden="true">☁️</div>
+            <h3>Share with Others</h3>
+            <p>Upload your saved work so others can see it</p>
+            <small
+              ><strong>This is like:</strong> Putting files in the shared office
+              drive</small
+            >
+          </button>
+        </div>
+      </section>
+
+      <section class="easy-commands" aria-labelledby="commands-heading">
+        <h2 id="commands-heading">🎮 The Only 4 Commands You Need!</h2>
+        <p>Click each card to see what it does:</p>
+        <div class="command-grid">
+          <button class="command-card" onclick="explainCommand(event, 'add')">
             <h4>📋 Choose Files</h4>
-            <div class="command-text">git add .</div>
+            <div class="command-text" aria-label="Git add command">
+              git add .
+            </div>
             <p>Selects ALL your changed files to save</p>
-          </div>
-          <div
+          </button>
+
+          <button
             class="command-card"
             onclick="explainCommand(event, 'commit')"
-            role="listitem"
-            tabindex="0"
           >
             <h4>💾 Save Work</h4>
-            <div class="command-text">git commit -m "what I did"</div>
+            <div class="command-text" aria-label="Git commit command">
+              git commit -m "what I did"
+            </div>
             <p>Saves your files with a description</p>
-          </div>
-          <div
-            class="command-card"
-            onclick="explainCommand(event, 'push')"
-            role="listitem"
-            tabindex="0"
-          >
-            <h4>☁️ Share Work</h4>
-            <div class="command-text">git push</div>
-            <p>Uploads your work for others to see</p>
-          </div>
-          <div
-            class="command-card"
-            onclick="explainCommand(event, 'pull')"
-            role="listitem"
-            tabindex="0"
-          >
-            <h4>⬇️ Get Updates</h4>
-            <div class="command-text">git pull</div>
-            <p>Downloads others' work to your computer</p>
-          </div>
-        </div>
-      </div>
+          </button>
 
-      <div class="quick-start">
-        <h2 style="color: #9c27b0">🚀 Quick Start Guide</h2>
-        <p style="font-size: 1.1em">Follow these steps in order, every time:</p>
-        <div style="text-align: left; max-width: 600px; margin: 0 auto">
-          <p>
-            <strong>1.</strong> Make changes to your files (edit, add, delete)
-          </p>
-          <p>
-            <strong>2.</strong> Type:
-            <code style="background: #f0f0f0; padding: 3px">git add .</code>
-          </p>
-          <p>
-            <strong>3.</strong> Type:
-            <code style="background: #f0f0f0; padding: 3px"
-              >git commit -m "describe what you changed"</code
-            >
-          </p>
-          <p>
-            <strong>4.</strong> Type:
-            <code style="background: #f0f0f0; padding: 3px">git push</code>
-          </p>
+          <button class="command-card" onclick="explainCommand(event, 'push')">
+            <h4>☁️ Share Work</h4>
+            <div class="command-text" aria-label="Git push command">
+              git push
+            </div>
+            <p>Uploads your work for others to see</p>
+          </button>
+
+          <button class="command-card" onclick="explainCommand(event, 'pull')">
+            <h4>⬇️ Get Updates</h4>
+            <div class="command-text" aria-label="Git pull command">
+              git pull
+            </div>
+            <p>Downloads others' work to your computer</p>
+          </button>
         </div>
-        <button class="big-button" onclick="showEncouragement()">
+      </section>
+
+      <!-- New Essential Git Commands Section -->
+      <section class="essential-commands" aria-labelledby="essential-heading">
+        <h2 id="essential-heading">🔍 Essential Git Commands to Know</h2>
+        <p>These commands help you understand and manage your Git projects:</p>
+        <div class="command-grid">
+          <button
+            class="command-card"
+            onclick="explainCommand(event, 'status')"
+          >
+            <h4>🔍 Check Status</h4>
+            <div class="command-text" aria-label="Git status command">
+              git status
+            </div>
+            <p>Shows what files have changed and what's ready to save</p>
+          </button>
+
+          <button class="command-card" onclick="explainCommand(event, 'log')">
+            <h4>📜 View History</h4>
+            <div class="command-text" aria-label="Git log command">git log</div>
+            <p>Shows the history of all your saved work</p>
+          </button>
+
+          <button
+            class="command-card"
+            onclick="explainCommand(event, 'branch')"
+          >
+            <h4>🌿 Create Branch</h4>
+            <div class="command-text" aria-label="Git branch command">
+              git branch feature-name
+            </div>
+            <p>Creates a separate workspace for new features</p>
+          </button>
+
+          <button class="command-card" onclick="explainCommand(event, 'merge')">
+            <h4>🔀 Combine Work</h4>
+            <div class="command-text" aria-label="Git merge command">
+              git merge feature-name
+            </div>
+            <p>Combines work from different branches together</p>
+          </button>
+        </div>
+      </section>
+
+      <section class="quick-start" aria-labelledby="quickstart-heading">
+        <h2 id="quickstart-heading">🚀 Quick Start Guide</h2>
+        <p>Follow these steps in order, every time:</p>
+        <ol class="quick-steps">
+          <li>
+            <strong>1.</strong> Make changes to your files (edit, add, delete)
+          </li>
+          <li><strong>2.</strong> Type: <code>git add .</code></li>
+          <li>
+            <strong>3.</strong> Type:
+            <code>git commit -m "describe what you changed"</code>
+          </li>
+          <li><strong>4.</strong> Type: <code>git push</code></li>
+        </ol>
+        <button
+          class="big-button"
+          onclick="showEncouragement()"
+          aria-label="Get encouragement to start using Git"
+        >
           I'm Ready to Try! 🎉
         </button>
-      </div>
+      </section>
 
-      <div class="beginner-tips">
-        <h2 style="text-align: center; color: #ff9800">
-          💡 Beginner-Friendly Tips
-        </h2>
+      <section class="beginner-tips" aria-labelledby="tips-heading">
+        <h2 id="tips-heading">💡 Beginner-Friendly Tips</h2>
         <ul class="tip-list">
           <li>
             <strong>🔄 Do this often:</strong> Save your work every time you
@@ -379,110 +878,32 @@
             your team will help you!
           </li>
         </ul>
-      </div>
+      </section>
 
-      <div style="text-align: center; margin: 30px 0">
-        <h2 style="color: #e91e63">
-          🎯 Remember: It's Just Like Saving Documents!
-        </h2>
-        <p style="font-size: 1.2em; color: #666">
+      <footer>
+        <h2>🎯 Remember: It's Just Like Saving Documents!</h2>
+        <p>
           You already know how to save files on your computer.<br />
           Git is the same thing, but it keeps track of
           <em>every version</em> you save!
         </p>
-      </div>
+      </footer>
     </div>
 
-    <div
-      id="modal"
-      style="
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        background: rgba(0, 0, 0, 0.4);
-        z-index: 1000;
-        align-items: center;
-        justify-content: center;
-      "
-    >
-      <div
-        style="
-          background: white;
-          padding: 30px;
-          border-radius: 10px;
-          max-width: 400px;
-          margin: auto;
-          text-align: center;
-        "
-      >
+    <!-- Modal -->
+    <dialog id="modal" class="modal" aria-labelledby="modal-text">
+      <div class="modal-content">
         <p id="modal-text"></p>
         <button
           onclick="closeModal()"
-          style="
-            margin-top: 20px;
-            padding: 8px 20px;
-            border: none;
-            background: #2196f3;
-            color: white;
-            border-radius: 5px;
-            cursor: pointer;
-          "
+          class="modal-close"
+          aria-label="Close dialog"
         >
           Close
         </button>
       </div>
-    </div>
+    </dialog>
 
-    <script>
-      function showStepInfo(event, step) {
-        const messages = {
-          1: "Step 1: This is just like working on any document on your computer. Nothing special here - just edit your files like normal!",
-          2: "Step 2: Instead of saving everything, you choose which files to save. It's like deciding which papers from your desk go into your filing tray.",
-          3: "Step 3: Now you officially save your chosen files with a note about what you changed. Like putting a sticky note on your filed documents.",
-          4: "Step 4: Finally, you share your saved work with your team. Like putting your filed documents in the shared office filing cabinet.",
-        };
-        event.target.classList.add("wiggle");
-        setTimeout(() => {
-          event.target.classList.remove("wiggle");
-          document.getElementById("modal-text").textContent = messages[step];
-          document.getElementById("modal").style.display = "flex";
-        }, 500);
-      }
-
-      function explainCommand(event, command) {
-        const explanations = {
-          add: "This command says 'Hey Git, I want to save ALL the files I changed.' The dot (.) means 'everything'.",
-          commit:
-            "This saves your files permanently with a message. Replace 'what I did' with what you actually changed, like 'fixed the homepage'.",
-          push: "This uploads your saved work to the shared location (like GitHub) so your team can see it.",
-          pull: "This downloads any new work your teammates have shared. Always do this before starting work!",
-        };
-        event.target.classList.add("wiggle");
-        setTimeout(() => {
-          event.target.classList.remove("wiggle");
-          document.getElementById("modal-text").textContent =
-            explanations[command];
-          document.getElementById("modal").style.display = "flex";
-        }, 500);
-      }
-
-      function showEncouragement() {
-        document.getElementById("modal-text").textContent =
-          "🎉 You've got this! Git seems scary at first, but you're just saving files with extra superpowers. Start with small changes and practice these 4 commands. You'll be a Git pro in no time! 💪";
-        document.getElementById("modal").style.display = "flex";
-      }
-
-      function closeModal() {
-        document.getElementById("modal").style.display = "none";
-      }
-
-      // Add some fun interactions
-      document.addEventListener("DOMContentLoaded", function () {
-        // Removed direct animation assignment for accessibility and browser compatibility
-      });
-    </script>
+    <script src="script.js"></script>
   </body>
 </html>
